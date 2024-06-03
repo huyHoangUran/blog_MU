@@ -62,6 +62,11 @@ Route::group(['as' => 'blogs.', 'prefix' => 'blogs'], function () {
     Route::get('/{blog}', [BlogController::class, 'show'])->name('show')->middleware('view.blog.not.approved');
 });
 
+Route::group(['as' => 'ads.', 'prefix' => 'ads'], function () {
+    Route::get('/{ad}', [AdsController::class, 'showAds'])->name('showAds');
+});
+
+
 Route::get('/', [BlogController::class, 'home'])->name('home');
 
 Route::middleware(['auth','admin'])->group(function () {
